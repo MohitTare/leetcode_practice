@@ -1,5 +1,6 @@
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        # BFS + maintain distance array to update the distance only if a shorter path is found
         graph = defaultdict(list)
         
         for e1,e2,w in times:
