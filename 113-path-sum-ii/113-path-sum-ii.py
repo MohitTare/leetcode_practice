@@ -9,14 +9,12 @@ class Solution:
         res = []
         
         def dfs(node,curr):
-            #print(node.val,curr) if node else print("None",curr)
             if not node:
                 return
             
             
             curr.append(node.val)
             if sum(curr) ==  target and not node.left and not node.right:
-                #print(node)
                 res.append(curr[:])
             dfs(node.left,curr)
             dfs(node.right,curr)
