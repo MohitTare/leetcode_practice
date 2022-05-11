@@ -6,7 +6,6 @@ class Solution:
             farthest = 0
             for i in range(l,r+1):
                 farthest = max(farthest,i+nums[i])
-                print(i,farthest)
             
             if farthest == 0:
                 return False
