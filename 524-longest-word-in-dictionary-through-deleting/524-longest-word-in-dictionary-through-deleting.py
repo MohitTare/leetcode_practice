@@ -1,32 +1,11 @@
 class Solution:
     
-    
-    
     def findLongestWord(self, s: str, dictionary: List[str]) -> str:
-        longestWord = ''
-        searchSet = defaultdict(list)
-        for i,c in enumerate(s):
-            searchSet[c].append(i)
-            
-        dictionary.sort()
+        def isSubsequence(x):
+            it = iter(s)
+            return all(c in it for c in x)
         
-        def search(word,curr = -1):
-            for c in word:
-                if c not in searchSet:
-                    return False
-                vals = [val for val in searchSet[c] if val > curr]
-                if len(vals) == 0:
-                    return False
-                curr = min(vals)
-            return True
-                
-        
-        for word in dictionary:
-            if search(word):
-                if len(word) > len(longestWord):
-                    longestWord = word
-        
-        return longestWord
+        return min(list(filter(isSubsequence,dictionary)) + [''],key = lambda x: (-len(x),x))
            
             
                 
