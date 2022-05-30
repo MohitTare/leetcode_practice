@@ -2,9 +2,9 @@ class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         dp = {}
         def dfs(i,curr):
-            if i == len(nums) and curr == target:
+            if i >= len(nums) and curr == target:
                 dp[(i,curr)] = 1
-            elif i == len(nums) and curr != target:
+            elif i >= len(nums) and curr != target:
                 dp[(i,curr)] = 0
                 
             if (i,curr) not in dp:
