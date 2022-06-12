@@ -1,31 +1,18 @@
 class Solution:
     def maxLength(self, arr: List[str]) -> int:
+        dp = [set()]
         
-        max_len = 0
-        dict_arr = {}
-        for i,item in enumerate(arr):
-            dict_arr[i] = set(item)
-            
-        
-        def dfs(i, res):
-            if i >= len(arr):
-                return res, len(res)
-            
-            if len(set(res)) != len(res):
-                return '',0
-            
-            l = len(res)
-            for j in range(i+1,len(arr)):
-                if len(dict_arr[j].intersection(set(res))) == 0:
-                    res,l = max(dfs(j, res + arr[j]), dfs(j,res),key=lambda x: x[1])
+        for item in arr:
+            if len(set(item)) < len(item): continue
+                
+            item  = set(item)
+            for comb_item in dp[:]:
+                if item & comb_item: continue
                     
-            return res,l
+                dp.append(item | comb_item)
         
-        for i in range(len(arr)):
-            res,l = dfs(i,arr[i])
-            max_len = max(max_len,l)
+        return max(len(i) for i in dp)
         
-        return max_len
                     
                 
                 
