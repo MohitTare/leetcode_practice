@@ -4,7 +4,6 @@ class Solution:
         res = []
         
         def dfs(i,curr,curr_sum):
-            #print(i,curr,curr_sum)
             if len(curr) > k or curr_sum > n:
                 return 
             
