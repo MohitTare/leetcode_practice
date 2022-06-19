@@ -3,6 +3,7 @@ class Solution:
     
         n, res, G = len(B), 0, defaultdict(list)
         
+        #fill graph using eucledian distance sqrt((x2-x1)**2  + (y2-y1)**2)
         for i in range(n):
             for j in range(n):
                 if i == j: continue
