@@ -9,12 +9,16 @@ class Solution:
             return nums[0]
         
         
-        for r in range(len(nums)):
+        while r < len(nums):
             if nums[r] == 0:
-                while nums[l] != 0:
-                    l+=1
-                l+=1
+                while r < len(nums) and nums[r] != 1:
+                    r+=1
+                if r >= len(nums):
+                    return max_len
+                else:
+                    l = r
             max_len = max(max_len, r - l + 1)
+            r+=1
         return max_len
             
     
