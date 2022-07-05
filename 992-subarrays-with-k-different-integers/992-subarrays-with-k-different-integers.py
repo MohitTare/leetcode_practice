@@ -11,7 +11,7 @@ class Solution:
                 
                 count_num[nums[r]] += 1
                 
-                while k < 0:
+                while l<= r and  k < 0:
                     count_num[nums[l]] -= 1
                     if count_num[nums[l]] == 0:
                         k+=1
