@@ -8,7 +8,7 @@ class Solution:
             #print(l,r)
             count[s[r]] -= 1
             
-            while l < len(s) and count['Q'] <= req_len and count['W'] <= req_len and count['E'] <= req_len and count['R'] <= req_len:
+            while l < len(s) and max(count.values()) <= req_len:
                 res = min(res,r - l + 1)
                 count[s[l]] += 1
                 l += 1
