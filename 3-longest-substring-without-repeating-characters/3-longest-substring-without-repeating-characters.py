@@ -3,8 +3,8 @@ class Solution:
         l = 0
         count = defaultdict(lambda:0)
         res = 0
-        if len(s) == 1:
-            return 1
+        #if len(s) == 1:
+        #    return 1
         for r in range(len(s)):
             count[s[r]] += 1
             while max(count.values()) > 1:
