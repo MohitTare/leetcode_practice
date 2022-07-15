@@ -2,10 +2,6 @@ class Solution:
     def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
         
         def maxWindowK(minutes):
-            l = 0
-            max_c = 0
-            count_c = 0
-            start=False
             alreadySatisfied = 0
             optimal = 0
             
