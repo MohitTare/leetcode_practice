@@ -6,32 +6,42 @@
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], target: int) -> int:
+        self.res = 0
+        cache = {}
         
-        count = [0]
-        cache = {0:1}
-        
-        def dfs(node,target,currSum,cache):
+        def dfs(node,curr_sum):
             if not node:
                 return
             
+            curr_sum += node.val
             
-            currSum += node.val
+            if curr_sum == target:
+                self.res += 1
             
-            oldPathSum = currSum - target
+            old_path_sum = curr_sum - target
             
-            count[0] += cache.get(oldPathSum,0)
+            if old_path_sum in cache:
+                self.res += cache[old_path_sum]
             
-            cache[currSum] =  cache.get(currSum,0) + 1
-            
-            
-            dfs(node.left,target,currSum,cache)
-            dfs(node.right,target,currSum,cache)
-            
-            cache[currSum] -= 1
+            if curr_sum in cache:
+                cache[curr_sum] += 1
+            else:
+                cache[curr_sum] = 1
             
             
-        dfs(root,target,0,cache)
-        return count[0]
+            dfs(node.left,curr_sum)
+            dfs(node.right,curr_sum)
             
+            cache[curr_sum] -= 1
+            
+        dfs(root,0)
+        
+        return self.res
+            
+            
+            
+        
+        
+        
             
         
