@@ -1,10 +1,7 @@
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
         beg = 0
-        end  = len(nums) - 1
+        end = len(nums) - 1
         mid = 0
         
         while mid <= end:
@@ -17,6 +14,7 @@ class Solution:
                 end -= 1
             else:
                 mid += 1
-            
-        return nums
+        
+        
+                
                 
