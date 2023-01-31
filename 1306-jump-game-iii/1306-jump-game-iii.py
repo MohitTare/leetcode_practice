@@ -1,6 +1,6 @@
 class Solution:
     def canReach(self, arr: List[int], start: int) -> bool:
-        visited = set()
+        #visited = set()
         def dfs(ind):
             if ind < 0 or ind >= len(arr) or arr[ind] < 0:
                 return False
